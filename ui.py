@@ -20,7 +20,9 @@ def stylize_image(model, content_image, style_image, content_size=None):
     device = next(model.parameters()).device
 
     content = dataset.content_transforms(content_size)(content_image)
+    content = content[:, :, 3]
     style = dataset.style_transforms()(style_image)
+    style = style [:, :, :3]
 
     content = content.to(device).unsqueeze(0)
     style = style.to(device).unsqueeze(0)
