@@ -16,20 +16,41 @@ import torchvision.transforms as T
 
 # Define the Stylize Image function which performs structure based style transfer
 def stylize_image(model, content_image, style_image, content_size=None):
-    
+    from torchvision import transforms
+
     device = next(model.parameters()).device
 
+    # Apply the appropriate transformations
     content = dataset.content_transforms(content_size)(content_image)
-    content = content[:, :, 3]
-    style = dataset.style_transforms()(style_image)
-    style = style [:, :, :3]
 
+    # Assuming the content_image is already an RGB image
+    style = dataset.style_transforms()(style_image)
+
+    # Convert the images to pytorch tensors and add a dimension 
+    # at the beginning for the batch size (expected by the model)
     content = content.to(device).unsqueeze(0)
     style = style.to(device).unsqueeze(0)
 
+    # Run the transformation model
     output = model(content, style)
-    
+
+    # Return the first image in the batch (you should only have one image per batch)
     return output[0].detach().cpu()
+
+    # device = next(model.parameters()).device
+
+    # content = dataset.content_transforms(content_size)(content_image)
+    # content = content[:, :, :3] # was ... , 3] only
+
+    # style = dataset.style_transforms()(style_image)
+    # style = style [:, :, :3]
+
+    # content = content.to(device).unsqueeze(0)
+    # style = style.to(device).unsqueeze(0)
+
+    # output = model(content, style)
+    
+    # return output[0].detach().cpu()
 
 
 
