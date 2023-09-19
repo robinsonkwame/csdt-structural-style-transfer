@@ -1,0 +1,3 @@
+I'm dev'ing width
+
+`git add . && git commit -a || true && git push || true && docker build -f Dockerfile . -t style-transfer`
