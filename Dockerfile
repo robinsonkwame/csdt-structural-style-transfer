@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/robinsonkwame/csdt-structural-style-transfer .
 
-RUN pip3 install --upgrade pip3
+RUN pip3 install --upgrade pip
 
 RUN pip3 install -r requirements_9_11_2023.txt
 
