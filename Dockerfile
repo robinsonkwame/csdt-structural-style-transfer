@@ -3,6 +3,8 @@
 #FROM python:3.8-slim
 FROM lucone83/streamlit-nginx:python3.8
 
+USER root
+
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
