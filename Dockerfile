@@ -7,7 +7,7 @@ WORKDIR /app
 
 RUN git clone https://github.com/robinsonkwame/csdt-structural-style-transfer style/
 
-RUN pip3 install -r requirements_9_11_2023.txt
+RUN pip3 install -r style/requirements_9_11_2023.txt
 
 EXPOSE 8501
 
