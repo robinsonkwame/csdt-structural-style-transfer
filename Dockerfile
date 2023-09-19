@@ -5,7 +5,7 @@ FROM aminehy/docker-streamlit-app:latest
 
 WORKDIR /app
 
-RUN git clone https://github.com/robinsonkwame/csdt-structural-style-transfer .
+RUN git clone https://github.com/robinsonkwame/csdt-structural-style-transfer
 
 RUN pip3 install -r requirements_9_11_2023.txt
 
