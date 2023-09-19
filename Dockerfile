@@ -1,7 +1,7 @@
 # app/Dockerfile
 
 #FROM python:3.8-slim
-FROM aminehy/docker-streamlit-app:latest
+FROM lucone83/streamlit-nginx:python3.8
 
 WORKDIR /app
 
