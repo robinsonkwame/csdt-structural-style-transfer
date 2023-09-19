@@ -9,8 +9,8 @@ import streamlit as st
 from PIL import Image
 import base64
 import torch
-from lib import dataset
-from lib.lightning.lightningmodel import LightningModel
+from style.lib import dataset
+from style.lib.lightning.lightningmodel import LightningModel
 import torchvision.transforms as T
 
 
